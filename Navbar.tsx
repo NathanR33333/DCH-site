@@ -62,7 +62,11 @@ export default function Navbar() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center px-2">
             <Image
-				src={darkMode ? "/logo-dark.png" : "/logo-light.png"}
+				src={
+				  darkMode
+				    ? "/logo-dark-transparent.png"
+				    : "/logo-light-transparent.png"
+				}
 				alt="Dreams Custom Homes"
 				width={260}
 				height={150}
