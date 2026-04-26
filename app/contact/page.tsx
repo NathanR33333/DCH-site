@@ -28,7 +28,22 @@ export default function ContactPage() {
               <h2 className="text-xl font-semibold text-[var(--navy)]">
                 Phone
               </h2>
-              <p className="mt-4 text-[var(--gray)]">(210) 669-5801</p>
+              <div className="mt-4 space-y-3 text-[var(--gray)]">
+                <p>
+                  <span className="font-semibold text-[var(--navy)]">
+                    John Ramos
+                  </span>
+                  <br />
+                  (210) 669-5801
+                </p>
+                <p>
+                  <span className="font-semibold text-[var(--navy)]">
+                    Gilbert Posada
+                  </span>
+                  <br />
+                  (210) 336-4237
+                </p>
+              </div>
             </div>
 
             <div className="card-shell p-8">
