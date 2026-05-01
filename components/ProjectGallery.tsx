@@ -6,12 +6,14 @@ type ProjectGalleryProps = {
   houseName: string;
   folder: string;
   images: string[];
+  morePhotosComingSoon?: boolean;
 };
 
 export default function ProjectGallery({
   houseName,
   folder,
   images,
+  morePhotosComingSoon,
 }: ProjectGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -43,24 +45,40 @@ export default function ProjectGallery({
 
   return (
     <>
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-        {images.map((img, index) => (
-          <button
-            key={img}
-            type="button"
-            onClick={() => openLightbox(index)}
-            className="group overflow-hidden rounded-xl text-left"
-          >
-            <div className="h-64 w-full overflow-hidden rounded-xl bg-[var(--card-bg)]">
-              <img
-                src={`/images/houses/${folder}/${img}`}
-                alt={`${houseName} photo ${index + 1}`}
-                className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
-              />
+      {images.length > 0 ? (
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+          {images.map((img, index) => (
+            <button
+              key={img}
+              type="button"
+              onClick={() => openLightbox(index)}
+              className="group overflow-hidden rounded-xl text-left"
+            >
+              <div className="h-64 w-full overflow-hidden rounded-xl bg-[var(--card-bg)]">
+                <img
+                  src={`/images/houses/${folder}/${img}`}
+                  alt={`${houseName} photo ${index + 1}`}
+                  className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                />
+              </div>
+            </button>
+          ))}
+
+          {morePhotosComingSoon && (
+            <div className="flex h-64 items-center justify-center rounded-xl border border-dashed border-[var(--border)] bg-[var(--white)] px-6 text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--gray)]">
+                More pictures coming soon
+              </p>
             </div>
-          </button>
-        ))}
-      </div>
+          )}
+        </div>
+      ) : (
+        <div className="mt-10 rounded-xl border border-dashed border-[var(--border)] bg-[var(--white)] p-10 text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--gray)]">
+            Photos coming soon
+          </p>
+        </div>
+      )}
 
       {activeIndex !== null && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4">
