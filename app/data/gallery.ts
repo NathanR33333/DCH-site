@@ -8,7 +8,7 @@ export const houses = [
     location: "San Antonio, TX",
     description:
       "Custom-built residential home featuring detailed framing, clean finishes, and full structural execution from foundation to final touches.",
-    cover: "1202-1.jpg",
+    cover: "1202-2.jpg",
     images: Array.from({ length: 19 }, (_, i) => `1202-${i + 1}.jpg`),
   },
 
@@ -21,7 +21,7 @@ export const houses = [
     location: "San Antonio, TX",
     description:
       "Ground-up home build focused on durability, structural integrity, and efficient layout execution throughout all phases.",
-    cover: "mally-1.jpg",
+    cover: "mally-41.jpg",
     images: Array.from({ length: 46 }, (_, i) => `mally-${i + 1}.jpg`),
   },
 

@@ -179,7 +179,7 @@ export default function Home() {
 
             <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
               {featuredHouses.map((house) => {
-                const coverImage = house.images[0];
+                const coverImage = house.cover ?? house.images[0];
 
                 return (
                   <Link

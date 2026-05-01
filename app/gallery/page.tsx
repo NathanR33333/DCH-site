@@ -67,7 +67,7 @@ export default function GalleryPage() {
 
             <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
               {houses.map((house) => {
-                const coverImage = house.images[0];
+                const coverImage = house.cover ?? house.images[0];
 
                 return (
                   <Link
