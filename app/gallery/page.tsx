@@ -66,18 +66,27 @@ export default function GalleryPage() {
             </div>
 
             <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-              {houses.map((house) => (
-                <Link
-                  key={house.folder}
-                  href={`/gallery/${house.folder}`}
-                  className="group card-shell block overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-xl"
-                >
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={`/images/houses/${house.folder}/${house.images[0]}`}
-                      alt={house.name}
-                      className="h-72 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                    />
+              {houses.map((house) => {
+                const coverImage = house.images[0];
+
+                return (
+                  <Link
+                    key={house.folder}
+                    href={`/gallery/${house.folder}`}
+                    className="group card-shell block overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    <div className="relative overflow-hidden">
+                      {coverImage ? (
+                        <img
+                          src={`/images/houses/${house.folder}/${coverImage}`}
+                          alt={house.name}
+                          className="h-72 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                        />
+                      ) : (
+                        <div className="flex h-72 w-full items-center justify-center bg-[var(--white)] px-6 text-center text-sm font-semibold uppercase tracking-[0.16em] text-[var(--gray)]">
+                          Photos coming soon
+                        </div>
+                      )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
                     <div className="absolute bottom-4 left-4 translate-y-2 text-sm font-medium text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                       View Project →
@@ -89,11 +98,15 @@ export default function GalleryPage() {
                       {house.name}
                     </p>
                     <p className="mt-2 text-sm text-[var(--gray)]">
+                      {house.address}
+                    </p>
+                    <p className="mt-3 text-sm text-[var(--gray)]">
                       {house.images.length} photos
                     </p>
                   </div>
                 </Link>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

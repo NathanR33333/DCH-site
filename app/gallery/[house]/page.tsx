@@ -43,6 +43,9 @@ export default async function HousePage({
 
             <p className="eyebrow mt-8">Project</p>
             <h1 className="section-title">{house.name}</h1>
+            <p className="mt-4 text-lg font-medium text-[var(--gray)]">
+              {house.address}
+            </p>
             <p className="section-copy">
               A closer look at this project, with images showing the work,
               structure, and finish throughout the build.
@@ -54,9 +57,9 @@ export default async function HousePage({
           <div className="container-site">
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="card-shell px-5 py-4">
-                <p className="text-sm font-medium text-[var(--gray)]">Project</p>
-                <p className="mt-2 text-2xl font-semibold text-[var(--navy)]">
-                  {house.name}
+                <p className="text-sm font-medium text-[var(--gray)]">Address</p>
+                <p className="mt-2 text-xl font-semibold leading-7 text-[var(--navy)]">
+                  {house.address}
                 </p>
               </div>
 
@@ -81,6 +84,7 @@ export default async function HousePage({
               houseName={house.name}
               folder={house.folder}
               images={house.images}
+              morePhotosComingSoon={house.morePhotosComingSoon}
             />
           </div>
         </section>
